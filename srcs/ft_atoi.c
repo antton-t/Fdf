@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 20:07:58 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/02 17:59:20 by antton-t         ###   ########.fr       */
+/*   Created: 2021/10/02 17:25:04 by antton-t          #+#    #+#             */
+/*   Updated: 2021/10/02 18:09:31 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-int	main(int argc, char **argv)
+int	ft_atoi(char **line)
 {
-	int	fd;
-	char	*str;
-	int	**tab;
-	int	line;
+	int	sign;
+	int	nb;
 
-	line = 0;
-	if (argc == 2 && ft_check(argv[1], ".fdf") == 1)
+	nb = 0;
+	sign = 1;
+	if ((**line) == '-' || (**line) == '+')
 	{
-		fd = open(argv[1], O_RDONLY);
-		if (fd < 0)
-			return (0);
-		while(get_next_line(fd, &str) != 0)
-		{
-			printf("%s\n", str);
-			line++;
-		}
-	tab = (int **)malloc(sizeof(int*) * (line + 1));
-	if (tab == NULL)
-		return (0);
-	printf("%i\n", line);
+		if ((**line) == '-')
+				sign = -1;
+		(*line)++;
 	}
-	else
-		return (0);
-	return (0);
+	while ((**line) >= '0' && (**line) <= '9')
+	{
+		nb = nb * 10 + ((**line) - '0');
+		(*line)++;
+	}
+	return (sign * nb);
 }

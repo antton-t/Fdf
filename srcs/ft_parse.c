@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 20:07:58 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/02 17:59:20 by antton-t         ###   ########.fr       */
+/*   Created: 2021/10/02 12:12:20 by antton-t          #+#    #+#             */
+/*   Updated: 2021/10/02 18:09:29 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-int	main(int argc, char **argv)
+int	ft_parse(char *line, int *tab)
 {
-	int	fd;
-	char	*str;
-	int	**tab;
-	int	line;
+	int	i;
+	int	size;
+	int	j;
 
-	line = 0;
-	if (argc == 2 && ft_check(argv[1], ".fdf") == 1)
+	j = 0;
+	i = 0;
+	if (ft_check_error(line) == 1)
+		return (0);
+	size = ft_strlen(line);
+	tab = (int *)malloc(sizeof(int) * (size + 1));
+	while (*line)
 	{
-		fd = open(argv[1], O_RDONLY);
-		if (fd < 0)
-			return (0);
-		while(get_next_line(fd, &str) != 0)
-		{
-			printf("%s\n", str);
-			line++;
-		}
-	tab = (int **)malloc(sizeof(int*) * (line + 1));
-	if (tab == NULL)
-		return (0);
-	printf("%i\n", line);
+		while ((*line) == ' ')
+			(*line)++;
+		tab[j] = ft_atoi(&line);
+		j++;
 	}
-	else
-		return (0);
-	return (0);
+	return (1);
 }

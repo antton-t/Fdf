@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_check_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 20:07:58 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/02 17:59:20 by antton-t         ###   ########.fr       */
+/*   Created: 2021/10/02 16:41:38 by antton-t          #+#    #+#             */
+/*   Updated: 2021/10/02 18:05:11 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-int	main(int argc, char **argv)
+int	ft_check_error(char *line)
 {
-	int	fd;
-	char	*str;
-	int	**tab;
-	int	line;
+	int	i;
 
-	line = 0;
-	if (argc == 2 && ft_check(argv[1], ".fdf") == 1)
+	i = 0;
+	while (line[i])
 	{
-		fd = open(argv[1], O_RDONLY);
-		if (fd < 0)
-			return (0);
-		while(get_next_line(fd, &str) != 0)
-		{
-			printf("%s\n", str);
-			line++;
-		}
-	tab = (int **)malloc(sizeof(int*) * (line + 1));
-	if (tab == NULL)
-		return (0);
-	printf("%i\n", line);
+		if ((line[i] == '+' || line[i] == '-') && (line[i + 1] == '-' ||
+			 line[i + 1] == '+'))
+			return (1);
+		if ((line[i] >= '0' && line[i] <= '9') || line [i] == ' ' ||
+			 line[i] == '+' || line[i] == '-')
+			i++;
+
+		else
+			return (1);
 	}
-	else
-		return (0);
 	return (0);
 }
