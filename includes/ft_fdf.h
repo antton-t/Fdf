@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 15:35:01 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/04 15:39:52 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/04 17:33:02 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
-int	*ft_parse(char *str, int *tab);
+int	*ft_parse(char *str, int *tab, int *i);
 int	ft_check_error(char *line);
 int	ft_atoi(char **line);
 int	**ft_init_size(int size);

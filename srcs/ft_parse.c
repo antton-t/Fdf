@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:12:20 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/04 15:55:20 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/04 17:42:53 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,25 @@ int	ft_count_num(char *str)
 	return (count);
 }
 
-int	*ft_parse(char *line, int *tab)
+int	*ft_parse(char *line, int *tab, int *i)
 {
 	int	size;
 	int	j;
+	int	k;
 
 	j = 0;
 	size = ft_count_num(line);
+	if ((*i) == -1)
+		(*i) = size;
+	else
+	{
+		k = size;
+		if ((*i) != k)
+		{
+			printf("%i 1 %i 2Error\n",(*i),k);
+			exit(1);
+		}
+	}
 	tab = (int *)malloc(sizeof(int) * (size + 1));
 	if (tab == NULL)
 		return (NULL);

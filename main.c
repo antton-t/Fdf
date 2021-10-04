@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 20:07:58 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/04 15:55:17 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/04 17:32:47 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int	main(int argc, char **argv)
 	int	**tab;
 	int	line;
 	int	i;
+	int	k;
 
 	i = 0;
 	line = 0;
+	k = -1;
 	if (argc == 2 && ft_check(argv[1], ".fdf") == 1)
 	{
 		fd = open(argv[1], O_RDONLY);
@@ -40,7 +42,7 @@ int	main(int argc, char **argv)
 		fd = open(argv[1], O_RDONLY);
 		while (get_next_line(fd, &str) != 0)
 		{
-			tab[i] = ft_parse(str, tab[i]);
+			tab[i] = ft_parse(str, tab[i], &i);
 			i++;;
 		}
 	}
