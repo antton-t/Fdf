@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/28 16:10:08 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/04 10:17:57 by antton-t         ###   ########.fr       */
+/*   Created: 2021/10/04 14:00:05 by antton-t          #+#    #+#             */
+/*   Updated: 2021/10/04 14:41:38 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-size_t	ft_strlen(const char *s)
+int	**ft_init_size(int size)
 {
-	size_t	count;
+	int	**tab;
+	int	i;
 
-	count = 0;
-	while (s[count])
-		count++;
-	return (count);
+	i = 0;
+	tab = (int **)malloc(sizeof(int *) * size);
+	if (tab == NULL)
+		exit(1);
+	while (size)
+	{
+		tab[i] = 0;
+		i++;
+		size--;
+	}
+	return (tab);
 }

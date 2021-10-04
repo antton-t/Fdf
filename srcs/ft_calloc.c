@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/28 16:10:08 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/04 10:17:57 by antton-t         ###   ########.fr       */
+/*   Created: 2021/10/04 13:45:22 by antton-t          #+#    #+#             */
+/*   Updated: 2021/10/04 13:47:20 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-size_t	ft_strlen(const char *s)
+void		*ft_calloc(size_t count, size_t size)
 {
-	size_t	count;
+	size_t	res_size;
+	void	*p;
 
-	count = 0;
-	while (s[count])
-		count++;
-	return (count);
+	res_size = size * count;
+	if (!(p = malloc(res_size)))
+		return (NULL);
+	ft_memset(p, 0, res_size);
+	return (p);
 }

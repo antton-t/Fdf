@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/28 16:10:08 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/04 10:17:57 by antton-t         ###   ########.fr       */
+/*   Created: 2021/10/04 13:47:29 by antton-t          #+#    #+#             */
+/*   Updated: 2021/10/04 13:50:18 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-size_t	ft_strlen(const char *s)
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t	count;
+	size_t			count;
+	unsigned char	*src;
 
 	count = 0;
-	while (s[count])
+	src = (unsigned char *)s;
+	while (count < n)
+	{
+		src[count] = c;
 		count++;
-	return (count);
+	}
+	return (s);
 }

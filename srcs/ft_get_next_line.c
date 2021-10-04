@@ -6,13 +6,15 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 15:40:47 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/02 11:50:59 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/04 10:17:34 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-void		ft_free_str(char **s)
+int	BUFFER_SIZE = 1;
+
+void	ft_free_str(char **s)
 {
 	if (s != NULL && *s != NULL)
 	{
@@ -60,7 +62,7 @@ static int	filter(char **str, int fd, char **line, int r)
 	return (save_line(&str[fd], line));
 }
 
-int			get_next_line(const int fd, char **line)
+int	get_next_line(const int fd, char **line)
 {
 	int			r;
 	char		*tmp;

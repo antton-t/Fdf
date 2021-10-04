@@ -6,12 +6,11 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 15:55:51 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/01 15:56:30 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/04 10:18:28 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
-
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
