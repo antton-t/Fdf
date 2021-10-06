@@ -6,7 +6,7 @@
 #    By: antton-t <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/28 14:20:06 by antton-t          #+#    #+#              #
-#    Updated: 2021/10/04 14:09:00 by antton-t         ###   ########.fr        #
+#    Updated: 2021/10/06 15:40:59 by antton-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ DIR_PARSE =	srcs/ft_check.c \
 			srcs/ft_memset.c \
 			srcs/ft_calloc.c \
 			srcs/ft_init.c \
+			srcs/ft_init_map.c \
 
 DIR_ADD =  \
 

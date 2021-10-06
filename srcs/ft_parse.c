@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:12:20 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/05 18:25:06 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:37:47 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	*ft_parse(char *line, int *tab, int *i)
 			exit(1);
 		}
 	}
-	tab = (int *)malloc(sizeof(int) * (size + 1));
+	tab = ft_calloc(sizeof(int), (size +1));
 	if (tab == NULL)
 		return (NULL);
 	while (*line)
@@ -68,15 +68,9 @@ int	*ft_parse(char *line, int *tab, int *i)
 		while ((*line) == ' ')
 			line++;
 		tab[j] = ft_atoi(&line);
+printf("%i ",tab[j]);
 		j++;
 	}
-	tab[j] = 0;
-j = 0;
-while (size)
-{
-	printf("%i ",tab[j]);
-	j++;
-	size--;
-}
+printf("\n");
 	return (tab);
 }

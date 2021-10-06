@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 15:35:01 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/04 17:33:02 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:37:04 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,15 @@
 #include <fcntl.h>
 #include <string.h>
 
+typedef	struct	l_map
+{
+	int	fd;
+	int	size;
+	int	lengh;
+	int	**tab;
+}				t_map;
 
+t_map	*ft_init_map(void);
 int	ft_check(char *argv, char *end);
 int	get_next_line(int fd, char **line);
 size_t	ft_strlen(const char *s);

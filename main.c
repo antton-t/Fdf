@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 20:07:58 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/05 17:28:43 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:55:46 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,25 @@ int	main_1(int fd)
 
 int	main(int argc, char **argv)
 {
-	int		fd;
 	char	*str;
-	int		**tab;
-	int		line;
 	int		i;
+	t_map	*map;
 
 	i = 0;
-	line = 0;
+	map = NULL;
 	if (argc == 2 && ft_check(argv[1], ".fdf") == 1)
 	{
-		fd = open(argv[1], O_RDONLY);
-		if (fd < 0)
+		map = ft_init_map();
+		map->fd = open(argv[1], O_RDONLY);
+		if ((map->fd) < 0)
 			return (0);
-		line = main_1(fd);
-		tab = ft_init_size(line + 1);
-		line = -1;
-		fd = open(argv[1], O_RDONLY);
-		while (get_next_line(fd, &str) != 0)
+		map->size = main_1(map->fd);
+		map->tab = ft_init_size(map->size + 1);
+		map->lengh = -1;
+		map->fd = open(argv[1], O_RDONLY);
+		while (get_next_line(map->fd, &str) != 0 && i <= map->size)
 		{
-			tab[i] = ft_parse(str, tab[i], &line);
+			map->tab[i] = ft_parse(str, map->tab[i], &(map->lengh));
 			i++;
 		}
 	}
