@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:12:20 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/06 17:37:47 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/06 18:27:08 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ int	*ft_parse(char *line, int *tab, int *i)
 		while ((*line) == ' ')
 			line++;
 		tab[j] = ft_atoi(&line);
-printf("%i ",tab[j]);
 		j++;
 	}
-printf("\n");
 	return (tab);
 }

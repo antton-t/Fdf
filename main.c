@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 20:07:58 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/06 17:55:46 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/06 18:27:11 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	main(int argc, char **argv)
 			map->tab[i] = ft_parse(str, map->tab[i], &(map->lengh));
 			i++;
 		}
+printf("SIZE ==> %i |||| LENGH ==> %i\n",map->size, map->lengh);
 	}
 	else
 		printf("Error\n");
