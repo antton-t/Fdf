@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 20:07:58 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/06 18:27:11 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/07 18:13:22 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ int	main(int argc, char **argv)
 		map->fd = open(argv[1], O_RDONLY);
 		while (get_next_line(map->fd, &str) != 0 && i <= map->size)
 		{
-			map->tab[i] = ft_parse(str, map->tab[i], &(map->lengh));
+			map->tab[i] = ft_parse(str, map->tab[i], &(map->lengh), map->size);
 			i++;
 		}
+		ft_execute_mlx(map);
 printf("SIZE ==> %i |||| LENGH ==> %i\n",map->size, map->lengh);
 	}
 	else
