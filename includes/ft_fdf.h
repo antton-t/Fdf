@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 15:35:01 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/07 18:13:38 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/08 17:27:09 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@ typedef	struct	l_map
 	int	size;
 	int	lengh;
 	int	**tab;
+	void	*mlx_ptr;
+	void	*mlx_exe;
+	void	*mlx_img;
 }				t_map;
 
 t_map	*ft_init_map(void);
 int	ft_check(char *argv, char *end);
-int	get_next_line(int fd, char **line);
+int	get_next_line(int fd, char **line, int BUFFER_SIZE);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);

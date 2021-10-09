@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 20:07:58 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/07 18:13:22 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/08 15:29:28 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main_1(int fd)
 	int		size;
 
 	size = 0;
-	while (get_next_line(fd, &str) != 0)
+	while (get_next_line(fd, &str, 1) != 0)
 	{
 		if (ft_check_error(str) == 1)
 			ft_print_error_exit();
@@ -51,7 +51,7 @@ int	main(int argc, char **argv)
 		map->tab = ft_init_size(map->size + 1);
 		map->lengh = -1;
 		map->fd = open(argv[1], O_RDONLY);
-		while (get_next_line(map->fd, &str) != 0 && i <= map->size)
+		while (get_next_line(map->fd, &str, 1) != 0 && i <= map->size)
 		{
 			map->tab[i] = ft_parse(str, map->tab[i], &(map->lengh), map->size);
 			i++;
