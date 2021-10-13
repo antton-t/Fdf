@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 15:35:01 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/08 17:27:09 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/13 15:23:08 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,17 @@ typedef	struct	l_map
 	void	*mlx_ptr;
 	void	*mlx_exe;
 	void	*mlx_img;
+	void	*mlx_img_ptr;
 }				t_map;
+
+typedef struct	s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp; /* bits per pixel */
+	int		line_len;
+	int		endian;
+}				t_img;
 
 t_map	*ft_init_map(void);
 int	ft_check(char *argv, char *end);
