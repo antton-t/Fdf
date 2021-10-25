@@ -6,7 +6,7 @@
 #    By: antton-t <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/28 14:20:06 by antton-t          #+#    #+#              #
-#    Updated: 2021/10/13 12:29:25 by antton-t         ###   ########.fr        #
+#    Updated: 2021/10/25 15:56:48 by antton-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ DIR_PARSE =	srcs/ft_check.c \
 			srcs/ft_init.c \
 			srcs/ft_init_map.c \
 			srcs/ft_execute_mlx.c \
+			srcs/ft_draw_img.c \
 
 OBJ = $(FILES:.c=.o) \
 			$(DIR_PARSE:.c=.o) \

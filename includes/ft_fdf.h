@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 15:35:01 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/14 17:53:08 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:23:44 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include "mlx.h"
+#include <math.h>
 
 
 typedef	struct	l_map
@@ -27,9 +28,15 @@ typedef	struct	l_map
 	int	size;
 	int	lengh;
 	int	**tab;
+	int	bpp;
+	int	size_line;
+	int	endian;
+	int	hight_max;
+	int	hight_min;
 	void	*mlx_ptr;
 	void	*mlx_exe;
 	void	*mlx_img;
+	void	*mlx_img_add;
 	void	*mlx_img_ptr;
 }				t_map;
 
@@ -57,5 +64,6 @@ int	ft_atoi(char **line);
 int	**ft_init_size(int size);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *s, int c, size_t n);
+void	ft_draw_img(t_map *map);
 
 # endif

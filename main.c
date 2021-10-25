@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 20:07:58 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/08 15:29:28 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/25 15:43:29 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_print_error_exit(void)
 {
-	printf("Error\n");
+	write(1,"Error\n", 6);
 	exit(1);
 }
 
@@ -28,9 +28,22 @@ int	main_1(int fd)
 	{
 		if (ft_check_error(str) == 1)
 			ft_print_error_exit();
+		free(str);
 		size++;
 	}
 	return (size);
+}
+
+int	ft_map_open(char **argv, t_map **map)
+{
+	(*map)->fd = open(argv[1], O_RDONLY);
+	if ((*map)->fd < 0)
+		return (-1);
+	(*map)->size = main_1((*map)->fd);
+	(*map)->tab = ft_init_size((*map)->size + 1);
+	(*map)->lengh = -1;
+	close((*map)->fd);
+	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -44,20 +57,16 @@ int	main(int argc, char **argv)
 	if (argc == 2 && ft_check(argv[1], ".fdf") == 1)
 	{
 		map = ft_init_map();
-		map->fd = open(argv[1], O_RDONLY);
-		if ((map->fd) < 0)
-			return (0);
-		map->size = main_1(map->fd);
-		map->tab = ft_init_size(map->size + 1);
-		map->lengh = -1;
+		if (ft_map_open(argv, &map) == -1)
+			ft_print_error_exit();
 		map->fd = open(argv[1], O_RDONLY);
 		while (get_next_line(map->fd, &str, 1) != 0 && i <= map->size)
 		{
 			map->tab[i] = ft_parse(str, map->tab[i], &(map->lengh), map->size);
 			i++;
 		}
+		close (map->fd);
 		ft_execute_mlx(map);
-printf("SIZE ==> %i |||| LENGH ==> %i\n",map->size, map->lengh);
 	}
 	else
 		printf("Error\n");
