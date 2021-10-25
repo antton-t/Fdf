@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 12:12:20 by antton-t          #+#    #+#             */
-/*   Updated: 2021/10/07 18:16:01 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/10/25 18:29:28 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_count_num(char *str)
 	space = 1;
 	while (str[i])
 	{
-		if (space == 1 && ((str[i] =='-' || str[i] == '+') || (str[i] >= '0'
+		if (space == 1 && ((str[i] == '-' || str[i] == '+') || (str[i] >= '0'
 					&& str[i] <= '9')))
 		{
 			count++;
@@ -41,7 +41,7 @@ int	ft_count_num(char *str)
 	return (count);
 }
 
-int	*ft_parse(char *line, int *tab, int *i,int taille)
+int	*ft_parse(char *line, int *tab, int *i, int taille)
 {
 	int	size;
 	int	j;
@@ -55,12 +55,9 @@ int	*ft_parse(char *line, int *tab, int *i,int taille)
 	{
 		k = size;
 		if ((*i) != k && taille != 1)
-		{
-			printf("%i 1 %i 2Error\n",(*i),k);
 			exit(1);
-		}
 	}
-	tab = ft_calloc(sizeof(int), (size +1));
+	tab = ft_calloc(sizeof(int), (size + 1));
 	if (tab == NULL)
 		return (NULL);
 	while (*line)
